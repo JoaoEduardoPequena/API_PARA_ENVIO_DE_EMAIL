@@ -25,9 +25,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //fazendo a conexão global
-sql.connect(connStr)
+/*sql.connect(connStr)
    .then(conn => global.conn = conn)
-   .catch(err => console.log(err));
+   .catch(err => console.log(err));*/
 
 
 
@@ -84,7 +84,7 @@ console.log("objEmail",emailDestino,textoEmail,assuntoEmail)
 
 
 
-function execSQLQuery(sqlQry, res){
+/*function execSQLQuery(sqlQry, res){
     global.conn.request()
                .query(sqlQry)
                //.then(result => res.json(result.recordset))
@@ -97,7 +97,7 @@ function execSQLQuery(sqlQry, res){
                    
                )
                .catch(err => res.json(err));
-}
+}*/
 
 // Enviar email
 router.post('/enviar_email', (req, res) =>{
@@ -113,35 +113,35 @@ router.post('/enviar_email', (req, res) =>{
 	.catch( error=>{console.log("erro send email",error)} )
 })
 // Candidato
-router.get('/candidato', (req, res) =>{
+/*router.get('/candidato', (req, res) =>{
     execSQLQuery('SELECT * FROM Tb_Candidato', res);
-})
+})*/
 
 
 // Empresa
-router.get('/empresa', (req, res) =>{
+/*router.get('/empresa', (req, res) =>{
     //execSQLQuery('select * from Tb_Empresa', res);  
     execSQLQuery('select * from Tb_Candidato', res);
-})
+})*/
 
 
 // Candidaturas
-router.get('/candidaturas', (req, res) =>{
+/*router.get('/candidaturas', (req, res) =>{
     execSQLQuery('select * from Tb_Candidaturas', res);
-})
+})*/
 
 
 // Publicar Estagio
-router.get('/estagio', (req, res) =>{
+/*router.get('/estagio', (req, res) =>{
     execSQLQuery('select * from Tb_Estagio', res);
-})
+})*/
 
 
 
 
 
 //  Executando muitas operações SQL
-function execute(items, i, conn){
+/*function execute(items, i, conn){
     if(!items[i]) return console.log("terminou");
  
     conn.request()
@@ -151,7 +151,7 @@ function execute(items, i, conn){
             execute(items, ++i, conn)  // faz o próximo
         })
         .catch(err => console.log(err));
-}
+}*/
 
 
 //inicia o servidor
